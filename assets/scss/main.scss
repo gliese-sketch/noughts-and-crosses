@@ -7,6 +7,12 @@
   box-sizing: border-box;
 }
 
+// Mixin
+%center {
+  display: grid;
+  place-items: center;
+}
+
 // Typography
 body {
   font-family: v.$font, sans-serif;
@@ -21,5 +27,69 @@ input {
 main {
   min-height: 100vh;
   min-width: 100vw;
-  background: black;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgba(216, 241, 230, 0.46) 0.1%,
+    rgba(233, 226, 226, 0.28) 90.1%
+  );
+
+  // Centering Everything
+  @extend %center;
+}
+
+.heading {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.heading::before {
+  content: "X";
+  position: absolute;
+  left: -2rem;
+  color: red;
+}
+
+.heading::after {
+  content: "O";
+  position: absolute;
+  right: -2rem;
+  color: red;
+}
+
+// Game Grid
+.game-grid {
+  width: 100%;
+  max-width: 20rem;
+  aspect-ratio: 1/1;
+  border: 1px solid v.$smoke;
+  border-radius: 1rem;
+
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.box {
+  width: 100%;
+  aspect-ratio: 1/1;
+  font-size: 2rem;
+  cursor: pointer;
+
+  @extend %center;
+}
+
+// Removes grid edge issue
+.box:nth-child(2n) {
+  border: 1px solid v.$smoke;
+}
+
+.reset-btn {
+  padding: 0.5rem 3rem;
+  border-radius: 1rem;
+  border: 1px solid v.$smoke;
+  cursor: pointer;
 }
