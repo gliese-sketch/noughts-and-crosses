@@ -1,14 +1,25 @@
+@use "variables" as v;
+
+// Resets
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+// Typography
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: v.$font, sans-serif;
 }
 
 button,
 input {
   font-family: inherit;
+}
+
+// Main
+main {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: black;
 }
