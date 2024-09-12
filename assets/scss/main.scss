@@ -58,6 +58,18 @@ main {
   color: red;
 }
 
+.player-status {
+  border: 1px solid v.$dark;
+  background: v.$smoke;
+  border-radius: 1rem;
+  padding: 0.5rem 3rem;
+}
+
+.current-player {
+  color: red;
+  font-weight: bold;
+}
+
 // Game Grid
 .game-grid {
   width: 100%;
