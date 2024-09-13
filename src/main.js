@@ -62,6 +62,13 @@ function checkWinner() {
       boxesEl[c3].classList.add("green");
     }
   });
+
+  const x = gameGrid.every((el) => el !== "");
+
+  if (x && !headingEl.textContent.includes("W")) {
+    headingEl.textContent = "Draw hua hai";
+    resetBtnEl.classList.add("active");
+  }
 }
 
 function handleClick(index) {
